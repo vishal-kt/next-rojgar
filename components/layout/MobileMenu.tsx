@@ -1,40 +1,38 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { siteConfig } from "@/config/site";
 
 export function MobileMenuButton() {
   const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
-  // Close menu when route changes
   useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
-  // Prevent body scroll when menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
+    if (!isOpen) {
+      return;
     }
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setIsOpen(false);
+        buttonRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      document.body.style.overflow = "";
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [isOpen]);
-
-  const handleClose = useCallback(() => setIsOpen(false), []);
-  const handleToggle = useCallback(() => setIsOpen((prev) => !prev), []);
 
   return (
     <>
       <button
+        ref={buttonRef}
         type="button"
-        onClick={handleToggle}
-        className="inline-flex items-center justify-center rounded-md p-2 text-gray-700 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+        onClick={() => setIsOpen((open) => !open)}
+        className="inline-flex items-center justify-center rounded-lg p-2 text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
         aria-expanded={isOpen}
         aria-controls="mobile-menu"
         aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
@@ -72,71 +70,26 @@ export function MobileMenuButton() {
         )}
       </button>
 
-      {/* Overlay */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-40 bg-black/30 backdrop-blur-sm lg:hidden"
-          onClick={handleClose}
-          aria-hidden="true"
-        />
-      )}
-
-      {/* Slide-in panel */}
-      <div
+      <nav
         id="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        aria-label="Navigation menu"
-        className={`fixed inset-y-0 right-0 z-50 w-72 max-w-full transform bg-white shadow-xl transition-transform duration-300 ease-in-out lg:hidden ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        aria-label="Mobile navigation"
+        hidden={!isOpen}
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-4rem)] overflow-y-auto border-b border-slate-200 bg-white px-4 py-3 shadow-lg lg:hidden"
       >
-        <div className="flex h-16 items-center justify-between border-b border-gray-200 px-4">
-          <span className="text-lg font-bold text-blue-700">
-            Next<span className="text-orange-500">Rojgar</span>
-          </span>
-          <button
-            type="button"
-            onClick={handleClose}
-            className="rounded-md p-2 text-gray-500 hover:bg-gray-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
-            aria-label="Close navigation menu"
-          >
-            <svg
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </button>
-        </div>
-
-        <nav className="px-4 py-4" aria-label="Mobile navigation">
-          <ul className="space-y-1">
-            {siteConfig.navLinks.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className={`block rounded-lg px-3 py-2.5 text-base font-medium transition-colors ${
-                    pathname === link.href
-                      ? "bg-blue-50 text-blue-700"
-                      : "text-gray-700 hover:bg-gray-50 hover:text-blue-700"
-                  } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-      </div>
+        <ul className="mx-auto max-w-7xl space-y-1">
+          {siteConfig.navLinks.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
+                onClick={() => setIsOpen(false)}
+                className="block rounded-lg px-3 py-2.5 text-base font-medium text-slate-700 transition-colors hover:bg-slate-50 hover:text-teal-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-700"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </>
   );
 }

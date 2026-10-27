@@ -3,32 +3,32 @@ import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/Ca
 import { Badge } from "@/components/ui/Badge";
 
 export const metadata: Metadata = {
-  title: "Online Tools — NextRojgar",
-  description: "Free online tools: age calculator, PDF utilities, image resizer, and more.",
+  title: "Online Tools",
+  description: "Explore planned browser-based tools for application documents.",
 };
 
 const tools = [
   {
     name: "Age Calculator",
-    description: "Calculate your exact age on a specific date. Useful for checking age eligibility for government exams.",
+    description: "A planned tool for calculating the difference between dates.",
     icon: "🎂",
     status: "Coming Soon",
   },
   {
     name: "PDF to Image",
-    description: "Convert PDF pages to high-quality images. Process files directly in your browser.",
+    description: "A planned tool for converting PDF pages to image files.",
     icon: "📄",
     status: "Coming Soon",
   },
   {
     name: "Image Resizer",
-    description: "Resize and compress images to meet application photo requirements.",
+    description: "A planned tool for resizing images for application documents.",
     icon: "🖼️",
     status: "Coming Soon",
   },
   {
     name: "Signature Resizer",
-    description: "Resize your signature image to meet government application specifications.",
+    description: "A planned tool for preparing signature images.",
     icon: "✍️",
     status: "Coming Soon",
   },
@@ -40,7 +40,7 @@ export default function ToolsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Online Tools</h1>
         <p className="mt-2 text-gray-600">
-          Free tools to help with your exam applications and document preparation
+          Planned tools for application documents. None are available yet.
         </p>
       </div>
 

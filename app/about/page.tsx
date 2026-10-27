@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 
 export const metadata: Metadata = {
-  title: "About — NextRojgar",
+  title: "About",
   description: "Learn about NextRojgar, an independent government recruitment information portal.",
 };
 
@@ -14,16 +14,15 @@ export default function AboutPage() {
       <div className="mt-6 space-y-6 text-gray-600 leading-relaxed">
         <p>
           <strong className="text-gray-900">NextRojgar</strong> is an independent,
-          India-focused portal that aims to help people discover government
-          recruitment opportunities, exam resources, and useful online tools — all
-          from one place.
+          India-focused project being built to organize government recruitment
+          information, exam resources, and practical online tools.
         </p>
 
         <p>
-          We aggregate and organize publicly available recruitment information to
-          make it easier for candidates to find and act on relevant opportunities.
-          We always link back to official sources and encourage users to verify
-          information from official notifications before making decisions.
+          This preview uses fictional sample content only. It is not connected to
+          live recruitment data, and no listings on this site should be treated as
+          a real notice. Future recruitment information should link to its official
+          source and be checked before publication.
         </p>
 
         <h2 className="text-xl font-semibold text-gray-900 pt-4">What We Cover</h2>
@@ -41,7 +40,7 @@ export default function AboutPage() {
         <h2 className="text-xl font-semibold text-gray-900 pt-4">Our Principles</h2>
         <ul className="list-disc pl-6 space-y-2">
           <li>Never fabricate vacancy counts, eligibility criteria, or deadlines</li>
-          <li>Always cite official sources and link to original notifications</li>
+          <li>Use official sources and link to original notifications when real content is introduced</li>
           <li>Clearly distinguish editorial summaries from official information</li>
           <li>Provide a clean, fast, mobile-friendly experience</li>
           <li>Respect user privacy and avoid intrusive practices</li>

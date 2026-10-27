@@ -2,7 +2,6 @@ import Link from "next/link";
 import { mockLatestUpdates } from "@/lib/mock-data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Badge } from "@/components/ui/Badge";
-import { formatDate } from "@/lib/utils";
 
 const typeBadgeVariant = {
   job: "success" as const,
@@ -26,10 +25,10 @@ export function LatestUpdates() {
   return (
     <section className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8" aria-labelledby="latest-updates-heading">
       <SectionHeading
+        id="latest-updates-heading"
         title="Latest Updates"
-        subtitle="Recent notifications and announcements (Demo Data)"
+        subtitle="A preview of how updates will be organized"
       />
-      <div id="latest-updates-heading" className="sr-only">Latest Updates</div>
 
       <div className="overflow-hidden rounded-xl border border-gray-200 bg-white">
         <ul className="divide-y divide-gray-100" role="list">
@@ -44,9 +43,7 @@ export function LatestUpdates() {
                     <Badge variant={typeBadgeVariant[update.type]}>
                       {typeLabel[update.type]}
                     </Badge>
-                    <span className="text-xs text-gray-400">
-                      {formatDate(update.date)}
-                    </span>
+                    <span className="text-xs text-gray-500">Demo only</span>
                   </div>
                   <p className="text-sm font-medium text-gray-900">
                     {update.title}

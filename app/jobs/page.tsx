@@ -5,15 +5,9 @@ import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/comp
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Government Jobs — NextRojgar",
+  title: "Government Jobs",
   description:
-    "Browse the latest government job notifications, recruitment updates, and application details.",
-};
-
-const statusBadgeVariant = {
-  active: "success" as const,
-  upcoming: "warning" as const,
-  expired: "danger" as const,
+    "Preview the planned government recruitment listings. Current notices are not connected.",
 };
 
 export default function JobsPage() {
@@ -22,10 +16,10 @@ export default function JobsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Government Jobs</h1>
         <p className="mt-2 text-gray-600">
-          Browse the latest government recruitment notifications
+          Browse example layouts for future recruitment notices
         </p>
         <p className="mt-2 rounded-md bg-amber-50 px-3 py-2 text-sm text-amber-700">
-          {DEMO_NOTICE}
+          <strong>Demo content:</strong> {DEMO_NOTICE}
         </p>
       </div>
 
@@ -34,24 +28,21 @@ export default function JobsPage() {
           <Card key={job.id}>
             <CardHeader>
               <div className="mb-2 flex items-center gap-2">
-                <Badge variant={statusBadgeVariant[job.status]}>
-                  {job.status.charAt(0).toUpperCase() + job.status.slice(1)}
-                </Badge>
-                <Badge variant="outline">{job.category.toUpperCase()}</Badge>
+                <Badge variant="warning">Demo only</Badge>
+                <Badge variant="outline">{job.category}</Badge>
               </div>
               <CardTitle>{job.title}</CardTitle>
             </CardHeader>
             <CardDescription>{job.summary}</CardDescription>
             <div className="mt-3 space-y-1 text-sm text-gray-600">
-              <p>📍 {job.location}</p>
-              <p>🎓 {job.qualification}</p>
-              <p>📅 Last Date: {formatDate(job.lastDate)}</p>
-              <p>👥 Vacancies: {job.vacancies}</p>
+              {job.location && <p>Location: {job.location}</p>}
+              {job.qualification && <p>Qualification: {job.qualification}</p>}
+              {job.lastDate && <p>Application deadline: {formatDate(job.lastDate)}</p>}
+              {job.vacancies && <p>Vacancies: {job.vacancies}</p>}
             </div>
             <CardFooter className="text-xs text-gray-500">
-              <span>🏢 {job.organization}</span>
-              <span className="text-gray-300">|</span>
-              <span>Posted: {formatDate(job.postedDate)}</span>
+              <span>{job.organization}</span>
+              {job.postedDate && <span>Example posted: {formatDate(job.postedDate)}</span>}
             </CardFooter>
           </Card>
         ))}

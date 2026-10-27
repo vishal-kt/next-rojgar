@@ -3,7 +3,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Answer Keys — NextRojgar",
+  title: "Answer Keys",
   description: "Find answer keys for government examinations.",
 };
 

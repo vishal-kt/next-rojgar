@@ -5,9 +5,9 @@ import { Card, CardHeader, CardTitle, CardFooter } from "@/components/ui/Card";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Exam Results — NextRojgar",
+  title: "Exam Results",
   description:
-    "Check the latest government exam results. Find result links and merit list updates.",
+    "Browse the planned results section. Demo entries are fictional and not official.",
 };
 
 export default function ResultsPage() {
@@ -16,10 +16,10 @@ export default function ResultsPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Exam Results</h1>
         <p className="mt-2 text-gray-600">
-          Find the latest exam results and merit lists
+          Browse example layouts for future result notices
         </p>
         <p className="mt-2 rounded-md bg-amber-50 px-3 py-2 text-sm text-amber-700">
-          {DEMO_NOTICE}
+          <strong>Demo content:</strong> {DEMO_NOTICE}
         </p>
       </div>
 
@@ -29,15 +29,16 @@ export default function ResultsPage() {
             <CardHeader>
               <div className="mb-2 flex items-center gap-2">
                 <Badge variant="info">Result</Badge>
-                <Badge variant="outline">{result.category.toUpperCase()}</Badge>
+                <Badge variant="warning">Demo only</Badge>
+                <Badge variant="outline">{result.category}</Badge>
               </div>
               <CardTitle>{result.title}</CardTitle>
             </CardHeader>
             <div className="mt-2 space-y-1 text-sm text-gray-600">
-              <p>🏢 {result.organization}</p>
+              <p>{result.organization}</p>
             </div>
             <CardFooter className="text-xs text-gray-500">
-              <span>Published: {formatDate(result.publishedDate)}</span>
+              {result.publishedDate && <span>Example publication date: {formatDate(result.publishedDate)}</span>}
             </CardFooter>
           </Card>
         ))}

@@ -3,7 +3,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Study Material — NextRojgar",
+  title: "Study Material",
   description: "Study resources for government exam preparation.",
 };
 

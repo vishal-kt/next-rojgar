@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NextRojgar frontend
 
-## Getting Started
+The Next.js App Router frontend for an independent India-focused recruitment and exam-information project. It is a UI foundation only: there is no live API, database, authentication, admin workflow, scraping, or deployment configuration.
 
-First, run the development server:
+## Run locally
 
-```bash
+```powershell
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Existing dependencies and generated Next.js configuration are kept in place.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Verify
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```powershell
+npm run lint
+npm run build
+```
 
-## Learn More
+## Routes
 
-To learn more about Next.js, take a look at the following resources:
+- `/` — Homepage, local demo search, category links, sample jobs, results, admit cards, and updates.
+- `/jobs`, `/admit-card`, `/results` — Fictional sample listing cards.
+- `/answer-key`, `/syllabus`, `/admissions`, `/current-affairs`, `/study-material`, `/tools` — Section shells and honest coming-soon states.
+- `/about`, `/contact` — Project context and preview limitations.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Demo content and data integrity
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+All preview notices are fictional placeholders in `lib/mock-data.ts`. They are not current, verified, official, or linked to real recruiting bodies. No dates, eligibility rules, vacancy counts, or official links are fabricated. The site-wide preview notice and individual sample labels make this clear. Search only matches local sample entries.
 
-## Deploy on Vercel
+Before any real recruitment content is published, add a reviewed content source and include official-source attribution. Do not treat this preview as a source of recruitment advice.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/` — Route pages, root layout, metadata, and global styles.
+- `components/layout/` — Shared header, mobile navigation, and footer.
+- `components/home/` — Homepage sections.
+- `components/ui/` — Reusable cards, badges, buttons, and empty states.
+- `config/site.ts` — Public site identity, disclaimer, and navigation.
+- `lib/mock-data.ts` — Fictional data used while no backend is connected.
+- `lib/api.ts` — Central API client foundation; no route currently calls it.
+- `types/index.ts` — Shared domain and response types.
+
+The API is a separate planned application. Database, authentication, editorial tools, scraping, file processing, and production deployment are intentionally out of scope for this frontend milestone.

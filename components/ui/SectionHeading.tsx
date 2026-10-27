@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 interface SectionHeadingProps {
+  id?: string;
   title: string;
   subtitle?: string;
   viewAllHref?: string;
@@ -10,6 +11,7 @@ interface SectionHeadingProps {
 }
 
 export function SectionHeading({
+  id,
   title,
   subtitle,
   viewAllHref,
@@ -19,7 +21,9 @@ export function SectionHeading({
   return (
     <div className={cn("mb-6 flex items-end justify-between gap-4", className)}>
       <div>
-        <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+        <h2 id={id} className="text-2xl font-bold text-gray-900">
+          {title}
+        </h2>
         {subtitle && (
           <p className="mt-1 text-sm text-gray-500">{subtitle}</p>
         )}

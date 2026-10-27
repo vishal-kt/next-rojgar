@@ -5,14 +5,14 @@ export interface Job {
   organization: string;
   category: string;
   summary: string;
-  vacancies: string;
-  qualification: string;
-  lastDate: string;
-  postedDate: string;
-  status: "active" | "upcoming" | "expired";
+  vacancies?: string;
+  qualification?: string;
+  lastDate?: string;
+  postedDate?: string;
+  status?: "active" | "upcoming" | "expired";
   applicationUrl?: string;
   officialNotificationUrl?: string;
-  location: string;
+  location?: string;
   ageLimit?: string;
   applicationFee?: string;
 }
@@ -22,7 +22,7 @@ export interface Result {
   title: string;
   slug: string;
   organization: string;
-  publishedDate: string;
+  publishedDate?: string;
   resultUrl?: string;
   category: string;
 }
@@ -32,9 +32,9 @@ export interface AdmitCard {
   title: string;
   slug: string;
   organization: string;
-  examDate: string;
+  examDate?: string;
   downloadUrl?: string;
-  publishedDate: string;
+  publishedDate?: string;
   category: string;
 }
 
@@ -43,8 +43,8 @@ export interface AnswerKey {
   title: string;
   slug: string;
   organization: string;
-  examDate: string;
-  publishedDate: string;
+  examDate?: string;
+  publishedDate?: string;
   downloadUrl?: string;
   category: string;
 }
@@ -54,7 +54,7 @@ export interface LatestUpdate {
   title: string;
   slug: string;
   type: "job" | "result" | "admit-card" | "answer-key" | "syllabus" | "admission";
-  date: string;
+  date?: string;
   summary: string;
   href: string;
 }

@@ -5,9 +5,9 @@ import { Card, CardHeader, CardTitle, CardFooter } from "@/components/ui/Card";
 import { formatDate } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Admit Cards — NextRojgar",
+  title: "Admit Cards",
   description:
-    "Download admit cards for government examinations. Find exam dates and hall ticket links.",
+    "Browse the planned admit card section. Demo entries are fictional and not official.",
 };
 
 export default function AdmitCardPage() {
@@ -16,10 +16,10 @@ export default function AdmitCardPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-gray-900">Admit Cards</h1>
         <p className="mt-2 text-gray-600">
-          Find and download admit cards for government examinations
+          Browse example layouts for future admit card notices
         </p>
         <p className="mt-2 rounded-md bg-amber-50 px-3 py-2 text-sm text-amber-700">
-          {DEMO_NOTICE}
+          <strong>Demo content:</strong> {DEMO_NOTICE}
         </p>
       </div>
 
@@ -28,17 +28,17 @@ export default function AdmitCardPage() {
           <Card key={card.id}>
             <CardHeader>
               <div className="mb-2 flex items-center gap-2">
-                <Badge variant="warning">Admit Card</Badge>
-                <Badge variant="outline">{card.category.toUpperCase()}</Badge>
+                <Badge variant="warning">Demo only</Badge>
+                <Badge variant="outline">{card.category}</Badge>
               </div>
               <CardTitle>{card.title}</CardTitle>
             </CardHeader>
             <div className="mt-2 space-y-1 text-sm text-gray-600">
-              <p>🏢 {card.organization}</p>
-              <p>📝 Exam Date: {formatDate(card.examDate)}</p>
+              <p>{card.organization}</p>
+              {card.examDate && <p>Example exam date: {formatDate(card.examDate)}</p>}
             </div>
             <CardFooter className="text-xs text-gray-500">
-              <span>Published: {formatDate(card.publishedDate)}</span>
+              {card.publishedDate && <span>Example publication date: {formatDate(card.publishedDate)}</span>}
             </CardFooter>
           </Card>
         ))}

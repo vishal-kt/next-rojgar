@@ -1,11 +1,11 @@
 export const siteConfig = {
   name: "NextRojgar",
   description:
-    "India-focused government recruitment and exam-information portal. Find latest government jobs, admit cards, results, answer keys, syllabus, and more.",
-  url: "https://nextrojgar.com",
-  tagline: "Your Gateway to Government Jobs",
+    "An independent India-focused project for government recruitment information, exam updates, and study resources.",
+  url: "http://localhost:3000",
+  tagline: "Independent recruitment and exam information",
   disclaimer:
-    "NextRojgar is an independent information portal. We are not affiliated with any government body. Always verify information from official sources before acting on it.",
+    "NextRojgar is an independent project and is not affiliated with any government body. This preview contains fictional demo content only. Verify real information with official sources.",
   navLinks: [
     { label: "Jobs", href: "/jobs" },
     { label: "Admit Card", href: "/admit-card" },

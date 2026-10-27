@@ -3,7 +3,7 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Admissions — NextRojgar",
+  title: "Admissions",
   description: "Education admission notices and application information.",
 };
 

@@ -3,8 +3,8 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = {
-  title: "Contact Us — NextRojgar",
-  description: "Get in touch with the NextRojgar team.",
+  title: "Contact",
+  description: "Contact information will be added before the site launches.",
 };
 
 export default function ContactPage() {
@@ -12,23 +12,18 @@ export default function ContactPage() {
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
       <h1 className="text-3xl font-bold text-gray-900">Contact Us</h1>
       <p className="mt-2 text-gray-600">
-        Have questions or feedback? We'd love to hear from you.
+        Have a question or feedback? A contact channel will be added before launch.
       </p>
 
       <div className="mt-8">
         <EmptyState
           icon="✉️"
           title="Contact Form — Coming Soon"
-          description="We're setting up our contact form. In the meantime, you can reach us at the email address below."
+          description="There is no contact form or support email configured in this preview."
         >
-          <div className="text-center">
-            <p className="text-sm text-gray-500 mb-3">
-              Email: <span className="font-medium text-gray-700">contact@nextrojgar.com</span>
-            </p>
-            <Button href="/" variant="outline">
-              Back to Home
-            </Button>
-          </div>
+          <Button href="/" variant="outline">
+            Back to Home
+          </Button>
         </EmptyState>
       </div>
     </div>

@@ -21,6 +21,11 @@ export default function Error({
         An unexpected error occurred. Please try again or return to the
         homepage.
       </p>
+      {error.digest && (
+        <p className="mt-2 text-sm text-gray-500">
+          Reference: {error.digest}
+        </p>
+      )}
       <div className="mt-8 flex gap-3">
         <Button onClick={() => reset()} variant="outline">
           Try Again
